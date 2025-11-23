@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustinOfficial</title>
+    
+    <!-- Open Graph Meta Tags untuk Thumbnail -->
+    <meta property="og:title" content="JustinOfficial - Kanal Resmi">
+    <meta property="og:description" content="Selamat datang di Api resmi JustinOfficial. Temukan konten menarik dan terbaru di sini!">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=630&q=80">
+    <meta property="og:url" content="https://example.com/justinofficial">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JustinOfficial - Kanal Resmi">
+    <meta name="twitter:description" content="Selamat datang di kanal resmi JustinOfficial. Temukan konten menarik dan terbaru di sini!">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=630&q=80">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        
+        .image-container {
+            max-width: 100%;
+            max-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-container img {
+            max-width: 100%;
+            max-height: 100vh;
+            object-fit: contain;
+        }
+        
+        /* Sembunyikan semua elemen kecuali gambar */
+        body > *:not(.image-container) {
+            display: none;
+        }
+        
+        /* Mode preview untuk testing */
+        .preview-mode .preview-content {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            color: white;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .preview-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            border-bottom: 1px solid #333;
+        }
+        
+        .preview-title {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        
+        .preview-description {
+            font-size: 1.2rem;
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .preview-image {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .preview-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .preview-meta {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .preview-meta h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .preview-meta ul {
+            list-style-type: none;
+        }
+        
+        .preview-meta li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            color: #ccc;
+        }
+        
+        .preview-meta li:before {
+            content: "•";
+            color: #4A90E2;
+            position: absolute;
+            left: 0;
+        }
+        
+        .toggle-preview {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4A90E2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1001;
+            font-size: 0.9rem;
+        }
+        
+        .close-preview {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Konten utama - hanya gambar -->
+    <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=800&q=80" alt="JustinOfficial">
+    </div>
+    
+    <!-- Mode preview (tersembunyi saat normal) -->
+    <div class="preview-content">
+        <button class="close-preview" onclick="closePreview()">✕</button>
+        
+        <div class="preview-header">
+            <h1 class="preview-title">JustinOfficial</h1>
+            <p class="preview-description">Ini adalah preview yang akan muncul saat link dibagikan di media sosial</p>
+        </div>
+        
+        <div class="preview-image">
+            <img src="https://images.unsplash.com/photo-1511367461989-f85a21fda167?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&h=630&q=80" alt="JustinOfficial Thumbnail">
+        </div>
+        
+        <div class="preview-meta">
+            <h3>Informasi Thumbnail:</h3>
+            <ul>
+                <li><strong>Judul:</strong> JustinOfficial - Kanal Resmi</li>
+                <li><strong>Deskripsi:</strong> Selamat datang di kanal resmi JustinOfficial. Temukan konten menarik dan terbaru di sini!</li>
+                <li><strong>URL Gambar:</strong> https://images.unsplash.com/photo-1511367461989-f85a21fda167</li>
+                <li><strong>Dimensi:</strong> 1200 x 630 piksel (Rasio 1.91:1)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <button class="toggle-preview" onclick="togglePreview()">Preview Thumbnail</button>
+
+    <script>
+        // Saat halaman dimuat, sembunyikan preview dan hanya tampilkan gambar
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cek jika URL memiliki parameter preview
+            const urlParams = new URLSearchParams(window.location.search);
+            const previewMode = urlParams.get('preview');
+            
+            if (previewMode === 'true') {
+                document.body.classList.add('preview-mode');
+            } else {
+                document.body.classList.remove('preview-mode');
+            }
+        });
+        
+        // Fungsi untuk toggle preview mode
+        function togglePreview() {
+            document.body.classList.toggle('preview-mode');
+        }
+        
+        // Fungsi untuk menutup preview
+        function closePreview() {
+            document.body.classList.remove('preview-mode');
+        }
+        
+        // Log untuk debugging
+        console.log('Halaman JustinOfficial dimuat');
+        console.log('OG Title:', document.querySelector('meta[property="og:title"]')?.getAttribute('content'));
+        console.log('OG Image:', document.querySelector('meta[property="og:image"]')?.getAttribute('content'));
+    </script>
+</body>
+</html>
